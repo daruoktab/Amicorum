@@ -55,19 +55,21 @@ export default function KitchenDetail({ role, onLogout }) {
 
   return (
     <div className="app">
-      <Sidebar isOpen={sbOpen} onClose={() => setSbOpen(false)} />
+      {role !== 'user' && <Sidebar isOpen={sbOpen} onClose={() => setSbOpen(false)} role={role} />}
       
       <div className="main">
         <div className="topbar pt-topbar">
-          <div className="burger" onClick={() => setSbOpen(true)}>
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M2 4h12M2 8h12M2 12h12" />
-            </svg>
-          </div>
+          {role !== 'user' && (
+            <div className="burger" onClick={() => setSbOpen(true)}>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M2 4h12M2 8h12M2 12h12" />
+              </svg>
+            </div>
+          )}
           <div className="breadcrumb">
-            <Link to="/" style={{ color: 'var(--tx3)', textDecoration: 'none' }}>Ikhtisar Pasar</Link>
+            <Link to="/dashboard" style={{ color: 'var(--tx3)', textDecoration: 'none' }}>Ikhtisar Pasar</Link>
             <span className="bc-sep">›</span>
-            <span>Analitik Dapur</span>
+            <span>{role === 'user' ? 'Informasi Publik' : 'Analitik Dapur'}</span>
             <span className="bc-sep">›</span>
             <span style={{ color: 'var(--tx)', fontWeight: 500 }}>Dapur A</span>
           </div>
@@ -80,7 +82,7 @@ export default function KitchenDetail({ role, onLogout }) {
               <div className="compliance-lbl">Tingkat Kepatuhan</div>
               <div className="compliance">98,4%</div>
             </div>
-            <button className="expbtn">↓ Ekspor Audit</button>
+            {role !== 'user' && <button className="expbtn">↓ Ekspor Audit</button>}
             <button style={{fontSize: 11, cursor: 'pointer', border: '1px solid var(--bdr)', padding: '4px 10px', marginLeft: '10px', borderRadius: 6, color: 'var(--red)', background: 'var(--rdim)'}} onClick={onLogout}>Sign Out</button>
           </div>
         </div>
@@ -88,18 +90,23 @@ export default function KitchenDetail({ role, onLogout }) {
         <div className="content">
           <div className="profile-head">
             <div className="ph-left">
-              <div className="ph-tag">Profil Dapur</div>
+              <div className="ph-tag">Profil Dasar</div>
               <div className="ph-name">Satuan Pelayanan Dapur A</div>
               <div className="ph-id">SPPG-JKT-001 · Kebayoran Baru, Jakarta Selatan</div>
               <div className="ph-meta">
                 <span className="badge b-op">Operasional</span>
-                <span style={{ fontSize: 11, color: 'var(--tx3)', padding: '3px 0' }}>Vendor: PT. Pangan Nusantara</span>
+                {role !== 'user' && <span style={{ fontSize: 11, color: 'var(--tx3)', padding: '3px 0' }}>Vendor: PT. Pangan Nusantara</span>}
                 <span style={{ fontSize: 11, color: 'var(--tx3)', padding: '3px 0' }}>Kapasitas: 2.450 porsi/hari</span>
               </div>
             </div>
             <div className="ph-actions">
-              <button className="act-btn">Hubungi PIC</button>
-              <button className="act-btn primary">Kirim Peringatan</button>
+              {role !== 'user' && <button className="act-btn">Hubungi PIC</button>}
+              {role === 'admin' && <button className="act-btn primary" style={{background: 'var(--red)', borderColor: 'var(--red)'}}>Kirim Peringatan</button>}
+              {role === 'user' && (
+                <Link to="/lapor">
+                  <button className="act-btn primary">Tulis Laporan Masyarakat</button>
+                </Link>
+              )}
             </div>
           </div>
 
@@ -123,24 +130,33 @@ export default function KitchenDetail({ role, onLogout }) {
                 <div className="ptitle">Rincian Alokasi Anggaran</div>
               </div>
               <div className="pbody">
-                <div className="alloc-lbl">Bahan Baku</div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                  <div style={{ fontSize: 10, color: 'var(--tx3)' }}>65,9% dari total</div>
-                  <div className="alloc-val">IDR 42,5M</div>
-                </div>
-                <div className="abar"><div className="abf" style={{ width: '66%', background: 'var(--green)' }}></div></div>
-                
-                <div className="alloc-lbl">Logistik & Pasokan</div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                  <div style={{ fontSize: 10, color: 'var(--tx3)' }}>19,8% dari total</div>
-                  <div className="alloc-val">IDR 12,8M</div>
-                </div>
-                <div className="abar"><div className="abf" style={{ width: '20%', background: 'var(--blue)' }}></div></div>
+                {role === 'user' ? (
+                  <div style={{ textAlign: 'center', padding: '40px 10px', background: 'rgba(0,0,0,0.2)', borderRadius: 8, border: '1px dashed var(--bdr)' }}>
+                    <div style={{ fontSize: 24, marginBottom: 10 }}>🔒</div>
+                    <div style={{ fontSize: 12, color: 'var(--tx2)', lineHeight: 1.5 }}>Data Anggaran/RAB Disembunyikan Demi Keamanan Administratif Otoritas.</div>
+                  </div>
+                ) : (
+                  <>
+                    <div className="alloc-lbl">Bahan Baku</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
+                      <div style={{ fontSize: 10, color: 'var(--tx3)' }}>65,9% dari total</div>
+                      <div className="alloc-val">IDR 42,5M</div>
+                    </div>
+                    <div className="abar"><div className="abf" style={{ width: '66%', background: 'var(--green)' }}></div></div>
+                    
+                    <div className="alloc-lbl">Logistik & Pasokan</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
+                      <div style={{ fontSize: 10, color: 'var(--tx3)' }}>19,8% dari total</div>
+                      <div className="alloc-val">IDR 12,8M</div>
+                    </div>
+                    <div className="abar"><div className="abf" style={{ width: '20%', background: 'var(--blue)' }}></div></div>
 
-                <div className="total-row">
-                  <div className="total-lbl">Total Dialokasikan</div>
-                  <div className="total-val">IDR 64,5M</div>
-                </div>
+                    <div className="total-row">
+                      <div className="total-lbl">Total Dialokasikan</div>
+                      <div className="total-val">IDR 64,5M</div>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
