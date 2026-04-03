@@ -1,0 +1,87 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 20px;
+}
+.login-box {
+  background: var(--surf);
+  border: 1px solid var(--bdr);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.l-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--tx);
+  letter-spacing: 0.05em;
+  font-family: var(--mono);
+}
+.l-sub {
+  color: var(--tx3);
+  font-size: 13px;
+  margin-top: 8px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.role-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rcard {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--bdr2);
+  background: var(--surf2);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+.rcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.rcard.admin { border-left: 4px solid var(--blue); }
+.rcard.admin:hover { border-color: var(--blue); background: var(--bdim); }
+
+.rcard.vendor { border-left: 4px solid var(--yellow); }
+.rcard.vendor:hover { border-color: var(--yellow); background: var(--ydim); }
+
+.rcard.public { border-left: 4px solid var(--green); }
+.rcard.public:hover { border-color: var(--green); background: var(--gdim); }
+
+.rc-icon {
+  font-size: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.rc-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--tx);
+  margin-bottom: 6px;
+}
+.rc-body p {
+  font-size: 12px;
+  color: var(--tx2);
+  line-height: 1.5;
+}
+
+@media(max-width: 600px) {
+  .login-box { padding: 30px 20px; }
+  .rcard { flex-direction: column; text-align: center; gap: 12px; }
+}

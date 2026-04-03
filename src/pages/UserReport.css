@@ -1,0 +1,68 @@
+.ur-app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--sans);
+}
+.ur-topnav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; background: var(--surf); border-bottom: 1px solid var(--bdr);
+}
+.ur-logo { font-family: var(--mono); font-weight: 600; font-size: 16px; color: var(--green); }
+.ur-actions { display: flex; align-items: center; gap: 16px; }
+.ur-loc { font-size: 11px; background: var(--surf2); padding: 5px 10px; border-radius: 20px; color: var(--tx2); border: 1px solid var(--bdr2); }
+.ur-logout { font-size: 11px; color: var(--red); cursor: pointer; }
+
+.ur-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+.ur-header { text-align: center; margin-bottom: 40px; }
+.ur-header h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.ur-header p { font-size: 13px; color: var(--tx2); max-width: 500px; margin: 0 auto; line-height: 1.5; }
+
+.ur-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}
+
+.ur-form-card { background: var(--surf); border: 1px solid var(--bdr); border-radius: 12px; padding: 24px; }
+.ur-form-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px solid var(--bdr); padding-bottom: 10px; }
+.fg { margin-bottom: 18px; }
+.fg label { display: block; font-size: 11px; color: var(--tx2); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+.ur-input { width: 100%; padding: 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--bdr2); color: var(--tx); font-family: var(--sans); font-size: 13px; outline: none; transition: border-color 0.2s; }
+.ur-input:focus { border-color: var(--green); }
+.ur-input.ta { min-height: 120px; resize: vertical; }
+
+.ur-sentiments { display: flex; gap: 10px; }
+.sbtn { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid var(--bdr2); background: var(--bg); color: var(--tx2); font-size: 12px; cursor: pointer; transition: all 0.2s; }
+.sbtn.pos { border-color: var(--green); background: var(--gdim); color: var(--green); }
+.sbtn.neu { border-color: var(--blue); background: var(--bdim); color: var(--blue); }
+.sbtn.neg { border-color: var(--red); background: var(--rdim); color: var(--red); }
+
+.ur-submit { width: 100%; padding: 14px; border-radius: 8px; background: var(--green); color: #000; font-weight: 600; font-family: var(--sans); cursor: pointer; border: none; margin-top: 10px; transition: opacity 0.2s; }
+.ur-submit:hover { opacity: 0.9; }
+
+.ur-info-card { background: var(--surf); border: 1px solid var(--blue); box-shadow: 0 0 15px rgba(96,165,250,0.1); border-radius: 12px; padding: 16px; margin-bottom: 20px; }
+.ur-info-card h4 { font-size: 12px; color: var(--blue); margin-bottom: 8px; }
+.ur-info-card p { font-size: 11px; color: var(--tx2); margin-bottom: 10px; }
+.ur-wc { background: var(--bg); border-radius: 8px; padding: 12px; text-align: center; }
+.ur-mask { font-family: var(--mono); font-size: 9px; color: var(--tx3); text-align: center; margin-top: 12px; background: rgba(0,0,0,0.2); padding: 6px; border-radius: 4px; }
+
+.ur-history h4 { font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.ur-hist-item { background: var(--surf); border: 1px solid var(--bdr); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+.uhi-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.uhi-id { font-family: var(--mono); font-size: 10px; color: var(--tx3); }
+.uhi-status { font-size: 9px; padding: 2px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+.uhi-status.verified { background: var(--gdim); color: var(--green); }
+.uhi-status.processing { background: var(--bdim); color: var(--blue); }
+.uhi-status.pending { background: var(--ydim); color: var(--yellow); }
+.uhi-dapur { font-size: 11px; color: var(--tx); font-weight: 500; margin-bottom: 6px; }
+.uhi-txt { font-size: 11px; color: var(--tx2); line-height: 1.4; font-style: italic; margin-bottom: 8px; }
+.uhi-date { font-size: 9px; color: var(--tx3); }
+
+@media(max-width: 768px) {
+  .ur-grid { grid-template-columns: 1fr; }
+}
