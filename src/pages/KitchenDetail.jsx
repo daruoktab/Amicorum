@@ -1,50 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 import Sidebar from '../components/Sidebar';
 import './KitchenDetail.css';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
-
 export default function KitchenDetail({ role, onLogout }) {
   const [sbOpen, setSbOpen] = useState(false);
-
-  const chartData = {
-    labels: ['Jul', 'Agt', 'Sep', 'Okt', 'Nov', 'Des'],
-    datasets: [
-      {
-        label: 'Pemenuhan',
-        data: [88, 91, 93, 95, 97, 98.2],
-        borderColor: '#3ddc84',
-        backgroundColor: 'rgba(61,220,132,0.08)',
-        fill: true,
-        tension: 0.4,
-        pointRadius: 3,
-        pointBackgroundColor: '#3ddc84',
-        borderWidth: 2
-      },
-      {
-        label: 'Target',
-        data: [95, 95, 95, 95, 95, 95],
-        borderColor: 'rgba(96,165,250,0.4)',
-        borderDash: [4, 4],
-        pointRadius: 0,
-        borderWidth: 1.5,
-        fill: false
-      }
-    ]
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#4a5568', font: { size: 10 } } },
-      y: { min: 80, max: 102, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#4a5568', font: { size: 10 }, callback: v => v + '%' } }
-    }
-  };
+  const [porsiBesar, setPorsiBesar] = useState(true);
 
   const lbData = [
     { r: 1, n: 'Dapur A', s: 98.4, hl: true },
@@ -124,12 +85,33 @@ export default function KitchenDetail({ role, onLogout }) {
             </div>
           </div>
 
-          <div className="three-col">
-            <div className="panel">
-              <div className="phead">
-                <div className="ptitle">Rincian Alokasi Anggaran</div>
+          <div className="three-col summary-row">
+            <div className="panel kcard summary-card">
+              <div className="pbody text-center">
+                <div className="summary-lbl">Total Penerima</div>
+                <div className="summary-val">1243</div>
               </div>
-              <div className="pbody">
+            </div>
+            <div className="panel kcard summary-card">
+              <div className="pbody text-center">
+                <div className="summary-lbl">Porsi Besar</div>
+                <div className="summary-val">800</div>
+              </div>
+            </div>
+            <div className="panel kcard summary-card">
+              <div className="pbody text-center">
+                <div className="summary-lbl">Porsi Kecil</div>
+                <div className="summary-val">443</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="three-col">
+            <div className="panel" style={{ display: 'flex', flexDirection: 'column' }}>
+              <div className="phead">
+                <div className="ptitle" style={{ fontStyle: 'italic', color: 'var(--tx)' }}>Rincian Alokasi Anggaran</div>
+              </div>
+              <div className="pbody" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {role === 'user' ? (
                   <div style={{ textAlign: 'center', padding: '40px 10px', background: 'rgba(0,0,0,0.2)', borderRadius: 8, border: '1px dashed var(--bdr)' }}>
                     <div style={{ fontSize: 24, marginBottom: 10 }}>🔒</div>
@@ -137,56 +119,76 @@ export default function KitchenDetail({ role, onLogout }) {
                   </div>
                 ) : (
                   <>
-                    <div className="alloc-lbl">Bahan Baku</div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                      <div style={{ fontSize: 10, color: 'var(--tx3)' }}>65,9% dari total</div>
-                      <div className="alloc-val">IDR 42,5M</div>
+                    <div className="alloc-list">
+                      <div className="alloc-item">
+                        <div className="alloc-name" style={{ fontStyle: 'italic', textTransform: 'lowercase' }}>ayam goreng</div>
+                        <div className="alloc-price"><span>Rp.</span> <span>50.000</span></div>
+                      </div>
+                      <div className="alloc-item">
+                        <div className="alloc-name" style={{ fontStyle: 'italic', textTransform: 'lowercase' }}>nasi putih</div>
+                        <div className="alloc-price"><span>Rp.</span> <span>20.000</span></div>
+                      </div>
+                      <div className="alloc-item">
+                        <div className="alloc-name" style={{ fontStyle: 'italic', textTransform: 'lowercase' }}>susu full-cream</div>
+                        <div className="alloc-price"><span>Rp.</span> <span>30.000</span></div>
+                      </div>
+                      <div className="alloc-item">
+                        <div className="alloc-name" style={{ fontStyle: 'italic' }}>Operasi</div>
+                        <div className="alloc-price"><span>Rp.</span> <span>30.000</span></div>
+                      </div>
                     </div>
-                    <div className="abar"><div className="abf" style={{ width: '66%', background: 'var(--green)' }}></div></div>
-                    
-                    <div className="alloc-lbl">Logistik & Pasokan</div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                      <div style={{ fontSize: 10, color: 'var(--tx3)' }}>19,8% dari total</div>
-                      <div className="alloc-val">IDR 12,8M</div>
-                    </div>
-                    <div className="abar"><div className="abf" style={{ width: '20%', background: 'var(--blue)' }}></div></div>
-
-                    <div className="total-row">
-                      <div className="total-lbl">Total Dialokasikan</div>
-                      <div className="total-val">IDR 64,5M</div>
+                    <div className="total-row mt-auto">
+                      <div className="total-lbl" style={{ fontStyle: 'italic', textTransform: 'capitalize' }}>Total Anggaran Harian</div>
+                      <div className="total-val" style={{ fontStyle: 'italic' }}><span>Rp.</span> <span>1.430.000</span></div>
                     </div>
                   </>
                 )}
               </div>
             </div>
 
-            <div className="panel">
-              <div className="phead">
-                <div className="ptitle">Komposisi Gizi Hari Ini</div>
-                <div className="ptag">2.450 kkal/hari</div>
+            <div className="panel" style={{ display: 'flex', flexDirection: 'column' }}>
+              <div className="phead" style={{ borderBottom: 'none' }}>
+                <div className="ptitle text-center" style={{ fontStyle: 'italic', color: 'var(--tx)' }}>Kandungan Gizi</div>
               </div>
-              <div className="kcal-center">
-                <div className="kcal-num">2.450</div>
-                <div className="kcal-lbl">kkal / hari</div>
+              <div className="toggle-row">
+                <div className="toggle-text">{porsiBesar ? 'Porsi Besar' : 'Porsi Kecil'}</div>
+                <button className="toggle-btn" onClick={() => setPorsiBesar(!porsiBesar)}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </button>
               </div>
-              <div className="nutri-grid">
-                <div className="nc">
-                  <div className="nc-lbl">Protein</div>
-                  <div className="nc-val near">85g <span style={{fontSize:11,color:'var(--tx3)'}}>/ 90g</span></div>
-                  <div className="nc-bar"><div className="nc-bf" style={{width:'94%',background:'var(--yellow)'}}></div></div>
+              <div className="kcal-center" style={{ borderBottom: 'none' }}>
+                <div className="kcal-num" style={{ fontStyle: 'italic' }}>{porsiBesar ? '2.420' : '1.800'}</div>
+                <div className="kcal-lbl" style={{ fontStyle: 'italic' }}>kkal / hari</div>
+              </div>
+              <div className="nutri-boxes mt-auto">
+                <div className="nb">
+                  <div className="nb-lbl">Protein</div>
+                  <div className="nb-val">{porsiBesar ? '35' : '25'}</div>
                 </div>
-                <div className="nc">
-                  <div className="nc-lbl">Karbohidrat</div>
-                  <div className="nc-val hit">310g <span style={{fontSize:11,color:'var(--tx3)'}}>/ 320g</span></div>
-                  <div className="nc-bar"><div className="nc-bf" style={{width:'97%',background:'var(--green)'}}></div></div>
+                <div className="nb">
+                  <div className="nb-lbl">Serat</div>
+                  <div className="nb-val">{porsiBesar ? '35' : '25'}</div>
+                </div>
+                <div className="nb">
+                  <div className="nb-lbl">Lemak</div>
+                  <div className="nb-val">{porsiBesar ? '35' : '25'}</div>
+                </div>
+                <div className="nb">
+                  <div className="nb-lbl">Karbohidrat</div>
+                  <div className="nb-val">{porsiBesar ? '35' : '25'}</div>
+                </div>
+                <div className="nb wide">
+                  <div className="nb-lbl">Energi</div>
+                  <div className="nb-val">{porsiBesar ? '35' : '25'}</div>
                 </div>
               </div>
             </div>
 
             <div className="panel">
               <div className="phead">
-                <div className="ptitle">Leaderboard Regional</div>
-                <div className="ptag">Top 4</div>
+                <div className="ptitle" style={{ fontStyle: 'italic', color: 'var(--tx)' }}>Leaderboard Regional</div>
               </div>
               <table>
                 <thead>
@@ -209,18 +211,6 @@ export default function KitchenDetail({ role, onLogout }) {
                   ))}
                 </tbody>
               </table>
-            </div>
-          </div>
-
-          <div className="panel">
-            <div className="phead">
-              <div className="ptitle">Tren Pemenuhan 6 Bulan</div>
-              <div className="ptag">% Fulfillment</div>
-            </div>
-            <div className="trend-wrap">
-              <div className="chart-area">
-                <Line data={chartData} options={chartOptions} />
-              </div>
             </div>
           </div>
         </div>
