@@ -38,7 +38,8 @@ body {
 
 .app {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Base Utility */
@@ -47,6 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  overflow-y: auto;
 }
 .content {
   padding: 18px 20px;
