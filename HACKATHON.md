@@ -109,25 +109,23 @@ Jika sudah ada solusi serupa di pasar, jelaskan bagaimana solusi Anda melengkapi
 Sebutkan teknologi atau pendekatan utama (contoh: AI, aplikasi web, mobile, data analytics, automation).
 (maks. 700 karakter)
     
-    Teknologi sistem ditopang secara utuh oleh tiga komponen berbasis aplikasi web. Pertama, Frontend Web: Framework React.js merender antarmuka dual-environment (Dashboard SPPG analitik & Dashboard User). Kedua, Backend (BaaS): Ekosistem Firebase difungsikan sebagai state manager otorisasi otomatis (termasuk verifikasi GPS log) dan sinkronisasi database noSQL real-time. Ketiga, AI/NLP Analitik: Modul komputasi difokuskan mengeksekusi Sentiment Analysis setiap kali ada umpan balik laporan masuk, plus sistem pendeteksian struktur kata dan kalimat untuk mengidentifikasi akun buzzer.
+    Teknologi sistem ditopang oleh empat komponen utama. Pertama, Frontend Web (React.js): Merender antarmuka dua bagian utama (Dashboard SPPG & Dashboard User). Kedua, Backend (Firebase): Mengelola otorisasi, verifikasi GPS, dan sinkronisasi data real-time. Ketiga, AI Analitik (Python/NLP): Mengeksekusi Sentiment Analysis dan deteksi buzzer secara otomatis. Keempat, Keamanan PDF (Blockchain NFT): Menggunakan teknologi hashing blockchain untuk mengunci integritas dokumen PDF. Setiap perubahan kecil pada file akan terdeteksi melalui perbedaan hash, menjamin validitas laporan vendor.
     
 - **Pemilihan dan Penggunaan Teknologi**
 Jelaskan mengapa Anda memilih teknologi tersebut dan bagaimana cara menggunakannya.
 (maks. 600 karakter)
     
-    React.js menunjang UI web interaktif yang modular (Word Cloud, widget alokasi anggaran, dan Leaderboard). Firebase dipilih karena skalabilitas arsitektur serverless, menekan latensi sinkronisasi laporan regional, serta menyediakan ekstraksi GPS geolocator di level autentikasi. Pemrosesan Python digunakan asinkron pada lapisan micro-API untuk membedah string komentar; algoritma menjalankan sentimen analisis langsung saat itu juga dan mendeteksi repetisi pola kalimat/kata akun buzzer sebelum laporan tersebut diserialisasi permanen ke Firestore untuk dirender pada Dasbor.
+    React.js menunjang UI web interaktif yang modular. Firebase dipilih demi skalabilitas serverless, sinkronisasi data real-time, dan ekstraksi geolocator. Pemrosesan Python mengeksekusi NLP asinkron untuk sentimen dan deteksi buzzer. Blockchain NFT dipilih sebagai jangkar keamanan dokumen; teknologi ini menjamin integritas PDF secara absolut melalui hashing yang immutable, memungkinkan verifikasi keaslian laporan secara desentralisasi guna mencegah manipulasi data administrasi pasca-penerbitan.
     
 - **Algoritma Solusi**
 Jelaskan algoritma AI/ML dan/atau blockchain yang akan Anda gunakan.
 (maks. 700 karakter)
     
-    **Sentiment Analysis & Deteksi Buzzer (NLP):**
-    
-    Setiap laporan yang masuk akan segera diproses oleh modul NLP untuk mengekstraksi fitur teks spesifik. Engine utama akan menjalankan sentiment analysis guna menilai polaritas/kecenderungan organik tanggapan warga. Selanjutnya sistem deteksi sekunder dijalankan untuk mengonfirmasi ulang apabila terdapat redundansi penggunaan kalimat identik atau deteksi formasi kata-kata tertentu yang mengindikasikan bahwa input tersebut bermodel buzzer.
-    
-    **Agregasi Data & Word Cloud:**
-    
-    Engine menggunakan logaritma Term Frequency (TF) yang menghitung entitas dominan berbasis frekuensi kemunculan. Skor ini diubah menjadi representasi visual Word Cloud trend SPPG. Komputasi iteratif juga menghitung akumulasi sentimen bersama kesesuaian eksekusi anggaran program guna melakukan sorting pemeringkatan (Leaderboard) regional secara real-time.
+    **NLP (Sentimen & Buzzer):** Modul NLP mengekstraksi fitur teks untuk menilai polaritas sentimen warga dan mengonfirmasi redundansi kalimat identik yang mengindikasikan akun buzzer.
+
+    **Agregasi & Word Cloud (TF):** Menggunakan Term Frequency (TF) untuk visualisasi Word Cloud tren SPPG dan komputasi sentimen/anggaran untuk pemeringkatan Leaderboard regional secara real-time.
+
+    **Mekanisme Integritas (Blockchain):** PDF laporan diproses melalui fungsi hash unik yang dicatat ke ledger blockchain. Mekanisme verifikasi dilakukan dengan membandingkan hash file aktif terhadap catatan blockchain; jika berbeda, sistem otomatis mendeteksi manipulasi.
     
 
 - **Data atau Input Utama yang Digunakan**
@@ -150,27 +148,27 @@ Jelaskan data apa yang digunakan dan dari mana asalnya, serta kualitas dan keand
 Uraikan secara singkat bagaimana solusi memperhatikan keamanan data dan potensi pengembangan ke depan.
 (maks. 600 karakter)
     
-    Mitigasi endpoint diverifikasi komprehensif menggunakan Firebase Security Rules yang mengeksekusi blocking I/O secara ketat berdasarkan UID identitias token Firebase Auth OAuth, mengamankan kerahasiaan geolokasi. Infrastruktur Serverless Firestore Document Database mendikte konfigurasi horizontal scaling/auto-scale, krusial menoleransi sistem terhadap burst trafik logging serta I/O read/write yang ekstrim tanpa risiko limitasi bandwidth (efek volume komentar/laporan berdimensi intens), terhindar dari pemeliharaan redundansi hardware pasif.     
+    Keamanan data diproteksi melalui Firebase Security Rules dan otentikasi OAuth guna menjaga privasi geolokasi serta integritas laporan. Infrastruktur serverless Firestore menjamin auto-scaling instan untuk menangani lonjakan trafik (burst traffic) tanpa risiko limitasi bandwidth. Untuk pengembangan ke depan, sistem dirancang mengintegrasikan teknologi pelacakan lokasi yang lebih presisi guna memastikan validitas laporan lapangan secara real-time. Pendekatan ini memastikan ketersediaan layanan tinggi, memitigasi kegagalan perangkat keras, dan siap diskalakan ke tingkat nasional dengan performa yang konsisten.  
 
 ### Implementation Feasibility (kecuali point status, ini juga bakal di revisi)
 
 - **Status Inovasi**
 Inovasi saat ini sedang dalam tahap apa? Misalnya ide / mockup / POC / prototype / pilot project?
     
-    Inovasi ini berada pada tahap mockup dengan fokus pada perancangan frontend untuk menguji konsep solusi sebelum masuk ke tahap pengembangan platform.
+    Inovasi saat ini berada pada tahap **High-Fidelity Mockup (Prototype)** dengan antarmuka fungsional yang berfokus pada dua dimensi utama: Portal Vendor untuk pelaporan aktivitas harian SPPG dan Dashboard Transparansi Publik untuk pengawasan masyarakat, guna memvalidasi alur visibilitas data sebelum integrasi backend aktif.
     
 - **Apakah Inovasi Realistis untuk Dibangun?**
 Jelaskan mengapa solusi ini masuk akal untuk direalisasikan oleh tim Anda.
 (maks. 700 karakter)
     
-    Pembangunan platform Minimum Viable Product (MVP) tergolong berpeluang realisasi optimal. Spesifikasi terisolasi secara presisi mencakup subsistem teknis mayor: integrasi backend SSO Google Firebase pembaca geolokasi GPS, sinkronisasi state data dashboard front-end (layer UI Dapur dan UI User), serta injeksi inferensi microservice NLP filter laporan dasar. Eliminasi dependensi rantai arsitektur heavy-weight yang redundan dan terabstraksinya kompleksitas ke single web app menjamin parameter MVP deployable pada time-window hackathon secara komplit.
+    Realisasi platform MVP sangat dimungkinkan karena arsitektur modular yang memisahkan frontend (React.js), backend (Firebase Serverless), dan keamanan dokumen (Blockchain). Penggunaan Firebase mengecilkan biaya infrastruktur awal, sementara modul NLP dan Blockchain diintegrasikan sebagai micro-service melalui API yang terisolasi. Hal ini memungkinkan fitur krusial seperti otorisasi geolokasi GPS dan verifikasi integritas PDF berjalan secara paralel tanpa dependensi rantai arsitektur yang berat, menjamin sistem siap dideploy dalam jendela waktu hackathon yang ketat secara komplit.
     
 
 - **Tahapan Pengembangan**
 Uraikan rencana tahapan implementasi dari awal hingga MVP atau pilot.
 (maks. 900 karakter)
     
-    Eksekusi teknikal direkayasa secara inkremental: 1. Inisialisasi arsitektur skema routing entitas database NoSQL Firebase (Tabel Users, Laporan/Komentar Regional, SPPG Metadata). 2. Konstruksi skeleton statis React.js untuk fiksasi layout Dashboard User (tracking status laporan & counter verifikasi) dan Interface Dapur A (Visualizer Word Cloud heatmap, grid nutrisi harian, visual alokasi budget, regional Leaderboard). 3. Konfigurasi integrasi trigger hook Firebase Auth dan GPS API Geolocation. 4. Integrasi model logistik NLP Profanity filter via REST endpoint untuk sanitasi input real-time report pipeline. 5. Tahap load-testing QA dan verifikasi CI-CD release.
+    1. **Inisialisasi Backend**: Konfigurasi skema NoSQL Cloud Firestore dan Firebase Auth dengan izin akses geolokasi presisi. 2. **Finalisasi Frontend**: Implementasi Dashboard multifungsi menggunakan React.js dan pengolahan data visual melalui Chart.js serta komponen Awan Kata (Word Cloud). 3. **Integrasi NLP**: Deployment layanan AI untuk analisis sentimen laporan warga dan deteksi otomatis pola kalimat akun buzzer secara asinkron. 4. **Implementasi Blockchain**: Pengembangan modul hashing SHA-256 untuk registrasi metadata PDF laporan harian ke ledger blockchain sebagai jaminan integritas dokumen. 5. **Uji Coba & Deployment**: Simulasi alur laporan end-to-end (Input warga -> AI Filter -> Verifikasi Sistem -> Berkas Blockchain) dan rilis final via platform hosting serverless.
     
 - **Bisnis Model dan Keberlanjutan**
 Gambarkan bisnis model dari solusi anda dalam bentuk business model canvas, serta jelaskan lebih detail.

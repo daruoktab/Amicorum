@@ -16,10 +16,10 @@
 
 **Value Propositions (Mengapa mereka butuh kita)**
 
-- **Pemerintah/BGN & Pemda**: perizinan vendor lebih cepat, data terpusat, monitoring real-time RAB dan pelaksanaan, early warning (aduan/sentimen), dan audit trail yang rapi.
-- **Vendor/Dapur**: proses registrasi dan verifikasi lebih jelas dan terstandar, pelaporan lebih mudah, mengurangi bolak-balik administrasi, meningkatkan kredibilitas vendor.
-- **Penerima manfaat & institusi**: kanal aduan/penilaian yang jelas, respon lebih cepat, kualitas dan keamanan pangan lebih terjaga.
-- **Publik/masyarakat**: transparansi ringkas (tanpa data sensitif) untuk membangun kepercayaan dan mendorong pengawasan partisipatif.
+- **Pemerintah/BGN & Pemda**: Perizinan vendor cepat, monitoring real-time RAB, audit trail absolut (Blockchain NFT), dan filter laporan kredibel (Anti-Buzzer NLP).
+- **Vendor/Dapur**: Proses registrasi standar, pelaporan mudah melalui portal terintegrasi, dan peningkatan kredibilitas melalui sertifikasi bervalidasi blockchain.
+- **Penerima Manfaat**: Kanal umpan balik yang aman dan transparan, menjamin kualitas gizi dan keamanan pangan terpantau secara konsisten.
+- **Publik**: Transparansi progres program tanpa membuka data sensitif, membangun kepercayaan melalui data yang akuntabel dan tidak dapat dimanipulasi.
 </aside>
 
 <aside>
@@ -39,12 +39,11 @@
 
 **Key Activities (Apa kegiatan utama operasional kita)**
 
-- Mendesain dan menjalankan alur **registrasi–verifikasi–perizinan** vendor.
-- Pengumpulan & validasi dokumen (legalitas, kuitansi, RAB) + pencatatan audit trail.
-- Monitoring pelaksanaan: laporan aktivitas vendor, dashboard, indikator kepatuhan.
-- Moderasi dan klasifikasi aduan publik (NLP) + tindak lanjut/eskalasi.
-- Pengembangan & pemeliharaan platform (UI/UX, keamanan, data governance).
-- Pelatihan pengguna (admin pusat, operator daerah, vendor).
+- Mengelola alur perizinan digital dan validasi otomatis dokumen vendor.
+- **Pengelolaan Keamanan Ledger**: Hashing laporan PDF ke blockchain untuk jaminan integritas data.
+- Monitoring real-time aktivitas vendor dan kepatuhan standar nutrisi melalui dashboard.
+- **Analitik NLP**: Klasifikasi otomatis aduan publik dan deteksi akun buzzer/spam.
+- Pemeliharaan infrastruktur Hybrid Cloud (Firebase) dan Blockchain.
 </aside>
 
 <aside>
@@ -75,11 +74,10 @@
 
 **Key Resources (Aset terpenting yang kita butuhkan)**
 
-- Tim produk: PM, UI/UX, backend, frontend, data/ML, security.
-- Infrastruktur: hosting, database, auth, storage dokumen (off-chain) + IPFS/hash (opsional).
-- Dataset dan standar: Tabel Komposisi Pangan, juknis/SOP BGN, standar keamanan pangan.
-- Kemitraan & akses data: akses proses bisnis BGN/Pemda, definisi indikator kinerja.
-- Operasional support: helpdesk, materi pelatihan.
+- Tim ahli spesialis: AI/NLP, Blockchain, Cloud Security, dan Fullstack React.
+- **Infrastruktur Hybrid**: Firebase (Auth/Store) dan Node Blockchain untuk hashing.
+- **Dataset & Standar Operasional**: Data historis sentimen, Tabel Komposisi Pangan, Juknis/SOP BGN, serta Standar Keamanan Pangan.
+- Dashboard Analitik: Tool visualisasi data real-time (Chart.js) dan Word Cloud.
 </aside>
 
 <aside>
@@ -87,11 +85,10 @@
 
 **Key Partnerships (Siapa mitra strategis kita)**
 
-- **BGN** dan **Pemda** (owner proses, regulasi, operasional pengawasan).
-- Penyedia infrastruktur cloud (mis. Firebase/GCP) untuk hosting, auth, dan storage.
-- Penyedia verifikasi/identitas dan legalitas (mis. integrasi NIB/NIK bila tersedia via API resmi).
-- Komunitas/relawan/pengawas lapangan untuk validasi dan verifikasi lapangan.
-- (Jika blockchain dipakai) penyedia infra web3 (L2, IPFS/pinning) dan auditor smart contract.
+- **BGN & Pemerintah Daerah**: Sebagai regulator dan pemberi izin utama.
+- Penyedia Cloud (Firebase/GCP): Hosting, Otentikasi, dan Database real-time.
+- **Blockchain Infrastructure Providers**: Untuk pencatatan immutable hash laporan PDF.
+- Pihak Verifikator Independen: Auditor lapangan dan komunitas pengawas lokal.
 </aside>
 
 <aside>
@@ -99,16 +96,15 @@
 
 **Cost Structure (Kemana uang akan dihabiskan)**
 
-- Biaya pengembangan produk: gaji tim, QA, desain, manajemen proyek.
-- Infrastruktur: hosting, database, storage dokumen, monitoring, keamanan.
-- Biaya implementasi: pelatihan, support, dokumentasi, deployment per daerah.
-- Biaya kepatuhan: audit keamanan, kepatuhan PDP, legal.
-- (Opsional) biaya web3: audit smart contract, node/provider, pinning IPFS.
+- Biaya pengembangan AI (NLP) dan integrasi Blockchain Ledger.
+- Pemeliharaan infrastruktur Cloud Serverless dan Database.
+- Operasional tim ahli keamanan siber dan implementasi per daerah.
+- Audit sistem secara berkala (Kepatuhan Keamanan & Audit Web3).
 </aside>
 
 <aside>
 💡
 
-**Catatan cepat**: Kalau kamu mau, kita bisa pilih satu model: (1) fokus *MVP Web2* dulu (registrasi + dashboard + aduan), lalu (2) blockchain jadi fase 2 untuk audit trail transaksi.
+**Catatan Strategis**: Kita menggunakan model **Hybrid Cloud-Blockchain** sejak awal. Firebase menangani kecepatan operasional (Web2), sementara Blockchain menangani bukti digital (Web3) yang tidak dapat dimanipulasi untuk laporan akhir PDF.
 
 </aside>
