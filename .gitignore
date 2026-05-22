@@ -1,2 +1,7 @@
+# dependencies
 node_modules
 .env
+
+# agents
+.agents/
+skills-lock.json
