@@ -7,7 +7,7 @@ router = APIRouter()
 @router.post("/calculate", response_model=HashResponse)
 async def calculate_hash(file: UploadFile = File(...)):
     """Hitung hash SHA-256 dari file PDF yang di-upload."""
-    if not file.filename.endswith(".pdf"):
+    if not file.filename or not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Hanya file PDF yang didukung")
 
     content = await file.read()
@@ -21,7 +21,7 @@ async def verify_hash(file: UploadFile = File(...), expected_hash: str = ""):
     Verifikasi apakah hash file PDF cocok dengan hash yang diberikan.
     Gunakan query parameter `?expected_hash=...` atau kirim via form.
     """
-    if not file.filename.endswith(".pdf"):
+    if not file.filename or not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Hanya file PDF yang didukung")
 
     if not expected_hash:

@@ -12,7 +12,7 @@ async def notarize_pdf(file: UploadFile = File(...)):
     """
     Upload file PDF, hitung hash-nya, lalu simpan hash ke blockchain.
     """
-    if not file.filename.endswith(".pdf"):
+    if not file.filename or not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Hanya file PDF yang didukung")
 
     content = await file.read()
@@ -34,7 +34,7 @@ async def verify_pdf(file: UploadFile = File(...)):
     """
     Upload file PDF, hitung hash-nya, lalu verifikasi keasliannya di blockchain.
     """
-    if not file.filename.endswith(".pdf"):
+    if not file.filename or not file.filename.endswith(".pdf"):
         raise HTTPException(status_code=400, detail="Hanya file PDF yang didukung")
 
     content = await file.read()
