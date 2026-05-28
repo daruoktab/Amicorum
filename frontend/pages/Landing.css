@@ -61,8 +61,14 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--gray);
+  background-color: var(--primary);
+  color: var(--white);
   object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 .profile-dropdown {
@@ -91,7 +97,13 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: var(--gray);
+  background-color: var(--primary);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .dropdown-user-text {

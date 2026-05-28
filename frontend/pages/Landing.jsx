@@ -24,16 +24,16 @@ function Landing({ role, setRole, onLogout }) {
           {role ? (
             <div className="profile-wrapper">
               <div className="profile-trigger" onClick={() => setShowProfileMenu(!showProfileMenu)}>
-                <div className="avatar"></div>
+                <div className="avatar">{role === 'vendor' ? 'V' : 'AE'}</div>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </div>
               {showProfileMenu && (
                 <div className="profile-dropdown">
                   <div className="dropdown-user-info">
-                    <div className="avatar-small"></div>
+                    <div className="avatar-small">{role === 'vendor' ? 'V' : 'AE'}</div>
                     <div className="dropdown-user-text">
-                      <span className="dropdown-name">Daru Okta Buana</span>
-                      <span className="dropdown-email">daruokta@gmail.com</span>
+                      <span className="dropdown-name">{role === 'vendor' ? 'Vendor Dapur' : 'Daru Okta Buana'}</span>
+                      <span className="dropdown-email">{role === 'vendor' ? 'sppg-jkt-001@vendor.com' : 'daruokta@gmail.com'}</span>
                     </div>
                   </div>
                   <ul className="dropdown-menu">
