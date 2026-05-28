@@ -27,7 +27,7 @@ function LoginSignupPopup({ onClose, setRole }) {
         </button>
 
         <div className="popup-left">
-          <img src="/aset-figma/asset portal masuk sebelum diedit figma.jpeg" alt="Ilustrasi Makan Bergizi" className="popup-illustration" />
+          <img src="/illustration_gizi.png" alt="Ilustrasi Makan Bergizi" className="popup-illustration" />
         </div>
 
         <div className="popup-right">
