@@ -1,0 +1,136 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Figma Colors */
+  --primary: #071E48;
+  --primary-hover: #0c2c63;
+  --green: #91D05D;
+  --beige: #E5D5B4;
+  --lightblue: #B5E0E9;
+  --black: #000000;
+  --gray: #F3F3F3;
+  --white: #FFFFFF;
+  --text-main: #111111;
+  --text-muted: #444444;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  /* Legacy App Theme Variables (Mapped to Figma Light Mode) */
+  --bg: #F9FAFB;
+  --surf: #FFFFFF;
+  --surf2: #F3F3F3;
+  --surf3: #E5E5E5;
+  --bdr: rgba(0, 0, 0, 0.08);
+  --bdr2: rgba(0, 0, 0, 0.15);
+  --tx: #111111;
+  --tx2: #444444;
+  --tx3: #666666;
+  --gdim: rgba(145, 208, 93, 0.15);
+  --blue: #071E48;
+  --bdim: rgba(7, 30, 72, 0.1);
+  --red: #DC2626;
+  --rdim: rgba(220, 38, 38, 0.1);
+  --yellow: #D97706;
+  --ydim: rgba(217, 119, 6, 0.1);
+  --mono: var(--font-sans);
+  --sans: var(--font-sans);
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--sans);
+  color: var(--tx);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.card-container {
+  background-color: var(--beige);
+  border-radius: 24px;
+  padding: 48px;
+  margin-bottom: 32px;
+}
+
+/* === LEGACY LAYOUT RESTORATION === */
+.app {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Base Utility */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-y: auto;
+}
+.content {
+  padding: 18px 20px;
+  flex: 1;
+}
+
+/* Pill / Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.b-op { background: var(--gdim); color: var(--green); }
+.b-cr { background: var(--rdim); color: var(--red); }
+.b-ac { background: var(--bdim); color: var(--blue); }
+.b-mn { background: rgba(122,130,153,0.12); color: #7a8299; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 90;
+}
+.overlay.show { display: block; }
