@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import './KitchenDetail.css';
 
 export default function KitchenDetail({ role, onLogout }) {
   const [sbOpen, setSbOpen] = useState(false);

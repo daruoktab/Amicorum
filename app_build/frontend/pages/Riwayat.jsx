@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import './Riwayat.css';
 
 export default function Riwayat({ role, onLogout }) {
   const [sbOpen, setSbOpen] = useState(false);
