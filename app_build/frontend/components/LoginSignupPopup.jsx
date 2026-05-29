@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginSignupPopup.css';
 
 function LoginSignupPopup({ onClose, setRole }) {
   const navigate = useNavigate();

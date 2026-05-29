@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import './Dashboard.css';
 
 export default function Dashboard({ role, onLogout }) {
   const [sbOpen, setSbOpen] = useState(false);

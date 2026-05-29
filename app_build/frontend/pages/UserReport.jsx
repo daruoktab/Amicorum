@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './UserReport.css';
 
 export default function UserReport({ onLogout }) {
   const [selectedDapur, setSelectedDapur] = useState('');

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginSignupPopup from '../components/LoginSignupPopup';
-import './Landing.css';
 
 function Landing({ role, setRole, onLogout }) {
   const [showPopup, setShowPopup] = useState(false);

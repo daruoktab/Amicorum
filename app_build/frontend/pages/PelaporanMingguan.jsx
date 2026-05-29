@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
-import './PelaporanMingguan.css';
 
 export default function PelaporanMingguan({ role, onLogout }) {
   const [sbOpen, setSbOpen] = useState(false);
