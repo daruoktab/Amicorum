@@ -5,3 +5,7 @@ node_modules
 # agents
 .agents/
 skills-lock.json
+
+# Reacts
+dist/*
+
