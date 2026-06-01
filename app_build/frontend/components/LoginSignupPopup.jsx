@@ -8,7 +8,7 @@ function LoginSignupPopup({ onClose, setRole }) {
     setRole(selectedRole);
     onClose();
     if (selectedRole === "user") {
-      navigate("/lapor");
+      navigate("/dashboard");
     } else if (selectedRole === "vendor") {
       navigate("/dashboard");
     } else {
